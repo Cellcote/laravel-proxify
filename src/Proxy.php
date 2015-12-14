@@ -73,7 +73,7 @@ class Proxy {
         }
 
         //Create the new request
-        $requestManager  = new RequestManager($this->uri, $method, $this->clientSecrets, $this->callMode, $this->cookieManager);
+        $requestManager = new RequestManager($this->uri, $method, $this->clientSecrets, $this->callMode, $this->cookieManager);
         if ($this->useHeader) {
             $requestManager->enableHeader();
         }
@@ -95,8 +95,7 @@ class Proxy {
             if ($grantType === ProxyAux::PASSWORD_GRANT) {
                 $mode = ProxyAux::MODE_LOGIN;
             }
-        }
-        else if (isset($skip) && strtolower($skip) === 'true') {
+        } else if (isset($skip) && strtolower($skip) === 'true') {
             $mode = ProxyAux::MODE_SKIP;
         }
 

@@ -18,8 +18,8 @@ namespace Cellcote\LaravelProxify\Exceptions;
 class CookieExpiredException extends ProxyException {
 
     public function __construct() {
-	    $this->httpStatusCode = 403;
-	    $this->errorType = 'proxy_cookie_expired';
+        $this->httpStatusCode = 403;
+        $this->errorType = 'proxy_cookie_expired';
         parent::__construct(\Lang::get('api-proxy-laravel::messages.proxy_cookie_expired'));
     }
 

@@ -32,7 +32,7 @@ class ApiProxyServiceProvider extends ServiceProvider {
      */
     public function boot() {
         $this->publishes([
-            __DIR__.'/config/proxy.php' => config_path('proxy.php'),
+            __DIR__ . '/config/proxy.php' => config_path('proxy.php'),
         ]);
 
     }
@@ -52,7 +52,7 @@ class ApiProxyServiceProvider extends ServiceProvider {
      * @return void
      */
     public function registerApiProxy() {
-        $this->app->bindShared('api-proxy.proxy', function ($app) {
+        $this->app->bindShared('api-proxy.proxy', function($app) {
             $params = $app['config']['proxy'];
             $proxy = new Proxy($params);
             return $proxy;
@@ -66,7 +66,7 @@ class ApiProxyServiceProvider extends ServiceProvider {
     /**
      * Get the services provided by the provider.
      *
-     * @return array
+     * @return string[]
      */
     public function provides() {
         return array('api-proxy.proxy');
