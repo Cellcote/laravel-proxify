@@ -19,8 +19,7 @@ use Cellcote\LaravelProxify\Managers\RequestManager;
 use Illuminate\Http\Response;
 
 class Proxy {
-
-    private $uri = null;
+    
     private $callMode = null;
     private $uriParam = null;
     private $skipParam = null;
@@ -33,7 +32,6 @@ class Proxy {
      * @param $params
      */
     public function __construct($params) {
-        $this->uriParam = $params['uri_param'];
         $this->skipParam = $params['skip_param'];
         $this->redirectUri = $params['redirect_login'];
         $this->clientSecrets = $params['client_secrets'];
