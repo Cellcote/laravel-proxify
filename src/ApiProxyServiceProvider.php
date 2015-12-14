@@ -14,7 +14,7 @@ namespace Cellcote\LaravelProxify;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\JsonResponse;
-use Andreoli\ApiProxy\Exceptions\ProxyException;
+use Cellcote\LaravelProxify\Exceptions\ProxyException;
 
 class ApiProxyServiceProvider extends ServiceProvider {
 
@@ -32,8 +32,9 @@ class ApiProxyServiceProvider extends ServiceProvider {
      */
     public function boot() {
         $this->publishes([
-            __DIR__.'/../../config/proxy.php' => config_path('proxy.php'),
+            __DIR__.'/config/proxy.php' => config_path('proxy.php'),
         ]);
+        
     }
 
     /**
@@ -57,7 +58,7 @@ class ApiProxyServiceProvider extends ServiceProvider {
             return $proxy;
         });
 
-        $this->app->bind('Andreoli\ApiProxy\Proxy', function($app) {
+        $this->app->bind('Cellcote\LaravelProxify\Proxy', function($app) {
             return $app['api-proxy.proxy'];
         });
     }

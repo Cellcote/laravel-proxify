@@ -12,10 +12,10 @@
 
 namespace Cellcote\LaravelProxify\Managers;
 
-use Andreoli\ApiProxy\Exceptions\CookieExpiredException;
-use Andreoli\ApiProxy\Exceptions\CookieInvalidException;
+use Cellcote\LaravelProxify\Exceptions\CookieExpiredException;
+use Cellcote\LaravelProxify\Exceptions\CookieInvalidException;
 use Illuminate\Support\Facades\Cookie;
-use Andreoli\ApiProxy\ProxyAux;
+use Cellcote\LaravelProxify\ProxyAux;
 
 class CookieManager {
 

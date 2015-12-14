@@ -12,11 +12,11 @@
 
 namespace Cellcote\LaravelProxify\Managers;
 
-use Andreoli\ApiProxy\ProxyAux;
-use Andreoli\ApiProxy\Models\ProxyResponse;
+use Cellcote\LaravelProxify\ProxyAux;
+use Cellcote\LaravelProxify\Models\ProxyResponse;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
-use Andreoli\ApiProxy\Exceptions\MissingClientSecretException;
+use Cellcote\LaravelProxify\Exceptions\MissingClientSecretException;
 
 class RequestManager {
 

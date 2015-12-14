@@ -12,10 +12,10 @@
 
 namespace Cellcote\LaravelProxify;
 
-use Andreoli\ApiProxy\Exceptions\CookieExpiredException;
-use Andreoli\ApiProxy\Exceptions\ProxyMissingParamException;
-use Andreoli\ApiProxy\Managers\CookieManager;
-use Andreoli\ApiProxy\Managers\RequestManager;
+use Cellcote\LaravelProxify\Exceptions\CookieExpiredException;
+use Cellcote\LaravelProxify\Exceptions\ProxyMissingParamException;
+use Cellcote\LaravelProxify\Managers\CookieManager;
+use Cellcote\LaravelProxify\Managers\RequestManager;
 use Illuminate\Http\Response;
 
 class Proxy {
