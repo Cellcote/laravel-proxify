@@ -34,7 +34,7 @@ class ApiProxyServiceProvider extends ServiceProvider {
         $this->publishes([
             __DIR__.'/config/proxy.php' => config_path('proxy.php'),
         ]);
-        
+
     }
 
     /**
