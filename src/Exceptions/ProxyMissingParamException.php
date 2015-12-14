@@ -18,8 +18,8 @@ namespace Cellcote\LaravelProxify\Exceptions;
 class ProxyMissingParamException extends ProxyException {
 
     public function __construct($parameter) {
-	    $this->httpStatusCode = 400;
-	    $this->errorType = 'proxy_missing_param';
+        $this->httpStatusCode = 400;
+        $this->errorType = 'proxy_missing_param';
         parent::__construct(\Lang::get('api-proxy-laravel::messages.proxy_missing_param', array('param' => $parameter)));
     }
 

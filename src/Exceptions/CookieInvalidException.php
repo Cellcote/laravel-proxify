@@ -18,8 +18,8 @@ namespace Cellcote\LaravelProxify\Exceptions;
 class CookieInvalidException extends ProxyException {
 
     public function __construct($parameter) {
-	    $this->httpStatusCode = 500;
-	    $this->errorType = 'proxy_cookie_invalid';
+        $this->httpStatusCode = 500;
+        $this->errorType = 'proxy_cookie_invalid';
         parent::__construct(\Lang::get('api-proxy-laravel::messages.proxy_cookie_invalid', array('param' => $parameter)));
     }
 

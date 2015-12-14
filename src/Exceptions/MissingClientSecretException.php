@@ -18,8 +18,8 @@ namespace Cellcote\LaravelProxify\Exceptions;
 class MissingClientSecretException extends ProxyException {
 
     public function __construct($parameter) {
-	    $this->httpStatusCode = 500;
-	    $this->errorType = 'missing_client_secret';
+        $this->httpStatusCode = 500;
+        $this->errorType = 'missing_client_secret';
         parent::__construct(\Lang::get('api-proxy-laravel::messages.missing_client_secret', array('client' => $parameter)));
     }
 

@@ -39,8 +39,7 @@ class CookieManager {
         if (isset($parsedCookie)) {
             $parsedCookie = json_decode($parsedCookie, true);
             $this->validateCookie($parsedCookie);
-        }
-        else {
+        } else {
             if ($callMode !== ProxyAux::MODE_LOGIN) {
                 throw new CookieExpiredException();
             }
@@ -56,8 +55,7 @@ class CookieManager {
     public function createCookie(Array $content) {
         if (!isset($this->info[CookieManager::COOKIE_TIME]) || $this->info[CookieManager::COOKIE_TIME] == null) {
             $cookie = Cookie::forever($this->info[CookieManager::COOKIE_NAME], json_encode($content));
-        }
-        else {
+        } else {
             $cookie = Cookie::make($this->info[CookieManager::COOKIE_NAME], json_encode($content), $this->info[CookieManager::COOKIE_TIME]);
         }
 

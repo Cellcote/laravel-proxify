@@ -27,6 +27,10 @@ class RequestManager {
     private $cookieManager = null;
     private $useHeader = false;
 
+    /**
+     * @param string $callMode
+     * @param CookieManager $cookieManager
+     */
     public function __construct($uri, $method, $clientSecrets, $callMode, $cookieManager) {
         $this->uri = $uri;
         $this->method = $method;
@@ -68,8 +72,7 @@ class RequestManager {
                 if ($proxyResponse->getStatusCode() != 200) {
                     if (array_key_exists(ProxyAux::REFRESH_TOKEN, $parsedCookie)) {
                         $ret = $this->tryRefreshToken($inputs, $parsedCookie);
-                    }
-                    else {
+                    } else {
                         $cookie = $this->cookieManager->destroyCookie();
                     }
                 }
@@ -111,8 +114,7 @@ class RequestManager {
 
             //Set a new cookie with updated access token and refresh token
             $cookie = $this->cookieManager->createCookie($parsedCookie);
-        }
-        else {
+        } else {
             $cookie = $this->cookieManager->destroyCookie();
         }
 
@@ -136,7 +138,7 @@ class RequestManager {
     }
 
     /**
-     * @param $response
+     * @param \GuzzleHttp\Message\ResponseInterface $response
      * @return mixed
      */
     private function getResponseContent($response) {
@@ -155,7 +157,7 @@ class RequestManager {
      * @param $method
      * @param $uriVal
      * @param $inputs
-     * @return \GuzzleHttp\Message\FutureResponse|\GuzzleHttp\Message\ResponseInterface|\GuzzleHttp\Ring\Future\FutureInterface|mixed|null
+     * @return \GuzzleHttp\Message\ResponseInterface
      */
     private function sendGuzzleRequest($method, $uriVal, $inputs) {
         $options = array();
@@ -164,13 +166,12 @@ class RequestManager {
         if ($this->callMode === ProxyAux::MODE_TOKEN && $this->useHeader === true) {
             $accessToken = ProxyAux::getQueryValue($inputs, ProxyAux::ACCESS_TOKEN);
             $inputs = ProxyAux::removeQueryValue($inputs, ProxyAux::ACCESS_TOKEN);
-            $options = array_add($options, 'headers', [ ProxyAux::HEADER_AUTH => 'Bearer ' . $accessToken ]);
+            $options = array_add($options, 'headers', [ProxyAux::HEADER_AUTH => 'Bearer ' . $accessToken]);
         }
 
         if ($method === 'GET') {
             $options = array_add($options, 'query', $inputs);
-        }
-        else {
+        } else {
             $options = array_add($options, 'body', $inputs);
         }
 
@@ -178,8 +179,7 @@ class RequestManager {
 
         try {
             $response = $client->send($request);
-        }
-        catch (ClientException $ex) {
+        } catch (ClientException $ex) {
             $response = $ex->getResponse();
         }
 
@@ -200,8 +200,7 @@ class RequestManager {
             }
             $info['id'] = $clientId;
             $info['secret'] = $this->clientSecrets[$clientId];
-        }
-        else if (count($this->clientSecrets) >= 1) {
+        } else if (count($this->clientSecrets) >= 1) {
             $firstKey = key($this->clientSecrets);
             $info['id'] = $firstKey;
             $info['secret'] = $this->clientSecrets[$firstKey];
