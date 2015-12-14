@@ -1,0 +1,33 @@
+{
+	"name": "cellcote/laravel-proxify",
+	"description": "A Laravel proxy package for SPA javascript API calls",
+	"keywords": [
+	"laravel",
+	"API",
+	"ajax",
+	"proxy",
+	"javascript",
+	"oauth"
+	],
+	"authors": [
+		{
+			"name": "Michele Andreoli",
+			"email": "michi.andreoli@gmail.com"
+		},
+		{
+			"name": "Rik Schreurs",
+			"email": "Rik.schreurs@mail.com"
+		}
+	],
+	"require": {
+		"php": ">=5.5.0",
+		"laravel/framework": "5.1.*",
+		"guzzlehttp/guzzle": "~5.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Cellcote\\LaravelProxify\\":"src"
+		}
+	},
+	"license": "MIT"
+}
