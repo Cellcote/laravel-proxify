@@ -21,7 +21,7 @@
 	],
 	"require": {
 		"php": ">=5.5.0",
-		"laravel/framework": "5.1.*",
+		"laravel/framework": "5.1 || 5.2",
 		"guzzlehttp/guzzle": "~5.0"
 	},
 	"autoload": {
